@@ -1,0 +1,53 @@
+{
+  "name": "kpnfmt",
+  "version": "1.0.0",
+  "description": "korean phone number formatter",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flowercat07/kpnfmt.git"
+  },
+  "author": "Hyewon <flowercat07@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/flowercat07/kpnfmt/issues"
+  },
+  "homepage": "https://github.com/flowercat07/kpnfmt#readme",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "prepack": "npm run build",
+    "build": "rimraf ./lib && tsc --emitDeclarationOnly && babel src --out-dir lib --extensions \".ts\" --source-maps inline",
+    "lint": "tslint -c ./tslint.json -p tsconfig.json 'src/**/*.ts' --format stylish",
+    "jest": "jest test",
+    "test": "npm run build && npm run lint && npm run jest"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "[^/]*\\.(test|spec)\\.(j|t)sx?$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json"
+    ]
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.2.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.2.0",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/preset-typescript": "^7.1.0",
+    "@types/jest": "^23.3.10",
+    "jest": "^23.6.0",
+    "rimraf": "^2.6.2",
+    "ts-jest": "^23.10.5",
+    "tslint": "^5.12.0",
+    "tslint-language-service": "^0.9.6",
+    "typescript": "^3.2.2"
+  }
+}
